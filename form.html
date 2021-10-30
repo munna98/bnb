@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formstyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align:center">
+          <h2>Join Our Team</h2>
+          <p>Fill This Form To Apply For A Job</p>
+        </div>
+        <div class="row">
+          
+          <div class="column">
+            <form id="submit-form" action="">
+              <label for="jt">Job Title</label>
+              <input type="text" id="jt" name="jt" placeholder="Job title..">
+              <label for="fname">Name</label>
+              <input type="text" id="fname" name="name" placeholder="Your name..">
+              <label for="lname">Email</label>
+              <input type="text" id="lname" name="email" placeholder="example@gmail.com">
+              <label for="country">Country</label>
+              <input type="text" id="country" name="email" placeholder="India">
+              <label for="subject">Address</label>
+              <textarea id="subject" name="address" ></textarea>
+              <label for="Phone">Phone</label>
+              <input type="text" id="phone" name="phone" >
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+          <div class="column">
+            <!--img src="bnb.png" style="width:100%"-->
+          </div>
+        </div>
+      </div>
+      <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbznQTxWQBrPEI_1WnZc-maTLxfyOuv07aqeL8IwjgjulrphTRAlaMhd_fqQ1G6zln7AiA/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+</body>
+</html>
